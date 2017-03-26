@@ -9,16 +9,22 @@
 import UIKit
 import AVFoundation
 import Photos
+//追加事項（フィルター的な）
+import CoreMedia
+//追加事項（何かの宣言）
+let PosterizeFilter = CIFilter(name: "CIColorPosterize", withInputParameters: ["inputLevels" : 5])
 
 
 
-@objc protocol FilterScrollViewDelegate: UIScrollViewDelegate {
+@objc protocol FilterScrollViewDelegate: UIScrollViewDelegate{
     func filterButtonTapped(_ button: UIButton)
 }
 
+//追加事項にAVCaptureVideoDataOutputSampleBufferDelegateも入れた
 
-
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+    //追加事項
+    let imageView = UIImageView(frame: CGRect.zero)
     //セッション
     var mySession : AVCaptureSession!
     // デバイス.
@@ -32,7 +38,7 @@ class ViewController: UIViewController {
     //保存のやつ AppDelegateのインスタンスを取得
      var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
-
+   
     
     @IBOutlet var label : UILabel!
     
@@ -47,6 +53,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //追加事項(imageviewの追加)
+        cameraview.addSubview(imageView)
+        
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
         
         //画面タップでピントを合わせる
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.tappedScreen(gestureRecognizer:)))
@@ -224,11 +235,29 @@ class ViewController: UIViewController {
                 }
             }
         
-   }
-    
-    
-
-
+        
+    }
+    //追加事項（何かのフィルター）
+    func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!){
+        guard let filter = PosterizeFilter else{
+            return
+        }
+        
+        let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+        let cameraImage = CIImage(cvPixelBuffer: pixelBuffer!)
+        
+        filter.setValue(cameraImage, forKey: kCIInputImageKey)
+        
+        let filteredImage = UIImage(ciImage: filter.value(forKey: kCIOutputImageKey) as! CIImage!)
+        
+        DispatchQueue.main.async {
+            
+            self.imageView.image = filteredImage
+            
+        }
+        
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
