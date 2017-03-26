@@ -1,25 +1,21 @@
 //
-//  ViewController.swift
+//  CameraFrontViewController.swift
 //  CameraSwiftReal
 //
-//  Created by Julie Lee on 2016/12/28.
+//  Created by Julie Lee on 2016/12/29.
 //  Copyright © 2016年 JulieLee. All rights reserved.
 //
 
 import UIKit
+
 import AVFoundation
-import Photos
 
-
-
-@objc protocol FilterScrollViewDelegate: UIScrollViewDelegate {
+@objc protocol FilterScrollViewDelegate2: UIScrollViewDelegate {
     func filterButtonTapped(_ button: UIButton)
 }
 
-
-
-class ViewController: UIViewController {
-    //セッション
+class CameraFrontViewController: UIViewController {
+    
     var mySession : AVCaptureSession!
     // デバイス.
     var myDevice : AVCaptureDevice!
@@ -29,12 +25,11 @@ class ViewController: UIViewController {
     //UIImageの宣言
     var filterImageArray: [UIImage?] = []
     
+    
     //保存のやつ AppDelegateのインスタンスを取得
-     var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
-
     
-    @IBOutlet var label : UILabel!
     
     @IBOutlet var scrollView : UIScrollView!
     
@@ -47,26 +42,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        //画面タップでピントを合わせる
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.tappedScreen(gestureRecognizer:)))
-        
         uiSlider.minimumValue = 0.4
         
         uiSlider.maximumValue = 0.9
         
-         uiSlider.value = 0.65
-        //タップジェスチャー（カメラのピント）の生成
-        var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.tappedScreen(gestureRecognizer:)))
-        cameraview.isUserInteractionEnabled = true
-        
-        //タップジェスチャーの追加
-        cameraview.addGestureRecognizer(tapGestureRecognizer)
-       
+        uiSlider.value = 0.65
         
         
-        filterImageArray = [UIImage(named: "4.png"),UIImage(named: "5.png"),UIImage(named: "6'.png"),UIImage(named: "7.png"),UIImage(named: "8.png"),UIImage(named: "9.png"),UIImage(named: "10.png"),UIImage(named: "11.png"),UIImage(named: "12.png"),UIImage(named: "13.png"),UIImage(named: "14.png"),UIImage(named: "15.png"),UIImage(named: "16.png"),UIImage(named: "17.png"),UIImage(named: "18.png"),UIImage(named: "19.png"),UIImage(named: "20.png"),UIImage(named: "21.png"),UIImage(named: "22.png"),UIImage(named: "24.png"),UIImage(named: "25.png"),UIImage(named: "26.png"),UIImage(named: "27.png"),UIImage(named: "28.png")]
         
+        
+        filterImageArray = [UIImage(named: "4'.png"),UIImage(named: "5.png"),UIImage(named: "6'.png"),UIImage(named: "7.png"),UIImage(named: "8.png"),UIImage(named: "9.png"),UIImage(named: "10.png"),UIImage(named: "11.png"),UIImage(named: "12.png"),UIImage(named: "16.png"),UIImage(named: "17.png"),UIImage(named: "18.png"),UIImage(named: "19.png"),UIImage(named: "20.png"),UIImage(named: "21.png"),UIImage(named: "24.png"),UIImage(named: "25.png"),UIImage(named: "26.png")]
+        
+
         scrollView.contentSize = CGSize(width: CGFloat(60*filterImageArray.count), height: scrollView.frame.size.height)
         for i in 0..<filterImageArray.count {
             let button : UIButton = UIButton()
@@ -78,8 +65,6 @@ class ViewController: UIViewController {
         }
         
         
-        
-        
         // セッションの作成.
         mySession = AVCaptureSession()
         
@@ -88,12 +73,12 @@ class ViewController: UIViewController {
         
         // バックカメラをmyDeviceに格納.
         for device in devices!{
-            if((device as AnyObject).position == AVCaptureDevicePosition.back){
+            if((device as AnyObject).position == AVCaptureDevicePosition.front){
                 myDevice = device as! AVCaptureDevice
             }
         }
         
-        // バックカメラからVideoInputを取得.
+        // フロントカメラからVideoInputを取得.
         let videoInput = (try! AVCaptureDeviceInput.init(device: myDevice))
         
         // セッションに追加.
@@ -111,12 +96,11 @@ class ViewController: UIViewController {
         myVideoLayer?.frame = self.cameraview.bounds
         myVideoLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         
-//        previewLayer = AVCaptureVideoPreviewLayer(session: captureSesssion)
-//        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspect // アスペクトフィット
-//        previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.portrait // カメラの向き
-//        
-//        cameraview.layer.addSublayer(previewLayer!)
-        
+        //        previewLayer = AVCaptureVideoPreviewLayer(session: captureSesssion)
+        //        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspect // アスペクトフィット
+        //        previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.portrait // カメラの向き
+        //
+        //        cameraview.layer.addSublayer(previewLayer!)
         
         
         // Viewに追加.
@@ -126,18 +110,18 @@ class ViewController: UIViewController {
         mySession.startRunning()
         
         
-    
+        
     }
-    
    
     
     func selectImage(_ sender: AnyObject?) {
-        filterimageview.image = filterImageArray[sender!.tag-1]
+    filterimageview.image = filterImageArray[sender!.tag-1]
     }
     @IBAction func sliderValueChanged(sender: UISlider) {
-//        var currentValue = Int(sender.value)
+        //        var currentValue = Int(sender.value)
         filterimageview.alpha =  CGFloat(sender.value)
     }
+    
     
     // ボタンイベント.
     @IBAction func onClickMyButton(_ sender: UIButton){
@@ -166,19 +150,14 @@ class ViewController: UIViewController {
             UIGraphicsEndImageContext()
             let saveImage : UIImage = self.cropImageToSquare(image!)!
             
-            
             self.appDelegate.shareImage = saveImage
+
             
             // アルバムに追加.
             UIImageWriteToSavedPhotosAlbum(saveImage, self, nil, nil)
             
         })
     }
-    @IBAction func Album(_ sender :AnyObject){
-        pickImageFromLibrary()
-    }
-    //タップジェスチャーの具体的な内容 
-    
     
     func cropImageToSquare(_ image: UIImage) -> UIImage? {
         
@@ -188,52 +167,38 @@ class ViewController: UIViewController {
         let cropCGImageRef = image.cgImage!.cropping(to: scaleRect);
         return UIImage(cgImage: cropCGImageRef!, scale: scale, orientation: .up);
         
-        
     }
-    func pickImageFromLibrary(){
+    
+    @IBAction func Album(_ sender :AnyObject){
+        pickImageFromLibrary()
+    }
+    
+func pickImageFromLibrary(){
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
             let controller = UIImagePickerController()
             controller.sourceType = UIImagePickerControllerSourceType.photoLibrary
             self.present(controller, animated: true, completion: nil)
         }
     }
-    
-    let focusView = UIView()
-    
-    func tappedScreen(gestureRecognizer: UITapGestureRecognizer){
-        let screenSize = cameraview.bounds.size
-        let touchPoint = gestureRecognizer.location(ofTouch: 0, in: gestureRecognizer.view) 
-            let x = touchPoint.y / screenSize.height
-            let y = 1.0 - touchPoint.x / screenSize.width
-            let focusPoint = CGPoint(x: x, y: y)
-            
-            if let device = myDevice {
-                do {
-                    try device.lockForConfiguration()
-                    
-                    device.focusPointOfInterest = focusPoint
-                    //device.focusMode = .ContinuousAutoFocus
-                    device.focusMode = .autoFocus
-                    //device.focusMode = .Locked
-                    device.exposurePointOfInterest = focusPoint
-                    device.exposureMode = AVCaptureExposureMode.continuousAutoExposure
-                    device.unlockForConfiguration()
-                }
-                catch {
-                    // just ignore
-                }
-            }
-        
-   }
-    
-    
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        
     }
+    @IBAction func goBack() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    /*
+    // MARK: - Navigation
 
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }
-
