@@ -65,7 +65,7 @@ class ViewController: UIViewController {
        
         
         
-        filterImageArray = [UIImage(named: "4.png"),UIImage(named: "5.png"),UIImage(named: "6'.png"),UIImage(named: "7.png"),UIImage(named: "8.png"),UIImage(named: "9.png"),UIImage(named: "10.png"),UIImage(named: "11.png"),UIImage(named: "12.png"),UIImage(named: "13.png"),UIImage(named: "14.png"),UIImage(named: "15.png"),UIImage(named: "16.png"),UIImage(named: "17.png"),UIImage(named: "18.png"),UIImage(named: "19.png"),UIImage(named: "20.png"),UIImage(named: "21.png"),UIImage(named: "22.png"),UIImage(named: "24.png"),UIImage(named: "25.png"),UIImage(named: "26.png"),UIImage(named: "27.png"),UIImage(named: "28.png")]
+        filterImageArray = [UIImage(named: "4'.png"),UIImage(named: "5.png"),UIImage(named: "6'.png"),UIImage(named: "7.png"),UIImage(named: "8.png"),UIImage(named: "9.png"),UIImage(named: "10.png"),UIImage(named: "11.png"),UIImage(named: "12.png"),UIImage(named: "16.png"),UIImage(named: "20.png"),UIImage(named: "21.png"),UIImage(named: "24.png"),UIImage(named: "25.png"),UIImage(named: "26.png")]
         
         scrollView.contentSize = CGSize(width: CGFloat(60*filterImageArray.count), height: scrollView.frame.size.height)
         for i in 0..<filterImageArray.count {
