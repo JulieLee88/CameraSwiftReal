@@ -22,17 +22,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzC-Ob-18Q">
-                                <rect key="frame" x="70" y="460" width="42" height="30"/>
+                                <rect key="frame" x="65" y="460" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="album"/>
+                                <state key="normal" title="ALBUM">
+                                    <color key="titleColor" red="1" green="0.61897620649999996" blue="0.70985736619999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="Album:" destination="va3-ml-R2W" eventType="touchUpInside" id="OVS-zc-igl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pH5-rw-uci">
-                                <rect key="frame" x="243" y="460" width="51" height="30"/>
+                                <rect key="frame" x="238" y="460" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="camera"/>
+                                <state key="normal" title="CAMERA">
+                                    <color key="titleColor" red="1" green="0.61897620649999996" blue="0.70985736619999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="modal" id="woF-5U-PQM"/>
                                 </connections>
@@ -43,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MWL-Kp-sJr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-540.5" y="149.5"/>
+            <point key="canvasLocation" x="-502" y="151"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -62,7 +66,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="12.png" translatesAutoresizingMaskIntoConstraints="NO" id="lom-7I-NFB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="4'.png" translatesAutoresizingMaskIntoConstraints="NO" id="lom-7I-NFB">
                                 <rect key="frame" x="0.0" y="78" width="376" height="376"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
@@ -79,6 +83,16 @@
                                 <rect key="frame" x="0.0" y="471" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AU0-pu-Cz3">
+                                <rect key="frame" x="16" y="30" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="BACK">
+                                    <color key="titleColor" red="1" green="0.61897620649999996" blue="0.70985736619999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="va3-ml-R2W" kind="modal" id="sbB-VS-4Io"/>
+                                </connections>
+                            </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.65000000000000002" minValue="0.5" maxValue="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="nHW-iS-X2Y">
                                 <rect key="frame" x="14" y="549" width="337" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -94,14 +108,14 @@
                                     <action selector="onClickMyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Foz-ez-W4L"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AU0-pu-Cz3">
-                                <rect key="frame" x="16" y="30" width="40" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgv-Gl-wco">
+                                <rect key="frame" x="31" y="597" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="BACK">
+                                <state key="normal" title="ALBUM">
                                     <color key="titleColor" red="1" green="0.61897620649999996" blue="0.70985736619999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="va3-ml-R2W" kind="modal" id="sbB-VS-4Io"/>
+                                    <action selector="Album:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bMf-8S-z8l"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -135,10 +149,10 @@
             </objects>
             <point key="canvasLocation" x="-186" y="-640"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera Front View Controller-->
         <scene sceneID="gSW-ls-mnT">
             <objects>
-                <viewController id="Wg4-dO-7JG" customClass="ViewController" customModule="CameraSwiftReal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Wg4-dO-7JG" customClass="CameraFrontViewController" customModule="CameraSwiftReal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IVd-Tt-Pvv"/>
                         <viewControllerLayoutGuide type="bottom" id="Lly-I9-3eH"/>
@@ -147,10 +161,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Qd-8v-IJ0" userLabel="Cameraview">
+                                <rect key="frame" x="-1" y="81" width="376" height="376"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="4'.png" translatesAutoresizingMaskIntoConstraints="NO" id="0cJ-7O-dcc">
+                                <rect key="frame" x="0.0" y="78" width="376" height="376"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fro-GN-38l">
                                 <rect key="frame" x="267" y="7" width="82" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="flipcamera.png"/>
+                                <connections>
+                                    <action selector="goBack" destination="Wg4-dO-7JG" eventType="touchUpInside" id="vzG-KL-JF7"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dUo-js-wAQ">
                                 <rect key="frame" x="0.0" y="471" width="375" height="70"/>
@@ -178,15 +204,16 @@
                                     <action selector="onClickMyButton:" destination="Wg4-dO-7JG" eventType="touchUpInside" id="zMd-Xv-nlc"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Qd-8v-IJ0" userLabel="Cameraview">
-                                <rect key="frame" x="-1" y="81" width="376" height="376"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbc-T3-Hft">
+                                <rect key="frame" x="16" y="597" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="12.png" translatesAutoresizingMaskIntoConstraints="NO" id="0cJ-7O-dcc">
-                                <rect key="frame" x="0.0" y="76" width="376" height="376"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" title="ALBUM">
+                                    <color key="titleColor" red="1" green="0.61897620649999996" blue="0.70985736619999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="Album:" destination="Wg4-dO-7JG" eventType="touchUpInside" id="xU8-bf-d4H"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -202,7 +229,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="12.png" width="1134" height="1134"/>
+        <image name="4'.png" width="600" height="600"/>
         <image name="button.png" width="300" height="300"/>
         <image name="flipcamera.png" width="512" height="512"/>
     </resources>

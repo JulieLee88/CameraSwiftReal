@@ -9,13 +9,9 @@
 import UIKit
 
 class SelectViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
-    @IBOutlet weak var imageFromCameraRoll: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        imageFromCameraRoll.contentMode = .scaleAspectFit
-      
         
         
         // Do any additional setup after loading the view.
@@ -42,14 +38,8 @@ class SelectViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         }
         
         }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo: [String: Any]){
-        if didFinishPickingMediaWithInfo[UIImagePickerControllerOriginalImage] != nil{
-            imageFromCameraRoll.image = didFinishPickingMediaWithInfo[UIImagePickerControllerOriginalImage] as? UIImage
-
-            
-        }
-        picker.dismiss(animated: true, completion: nil)
-    }
+    
+      
     
     /*
     // MARK: - Navigation
