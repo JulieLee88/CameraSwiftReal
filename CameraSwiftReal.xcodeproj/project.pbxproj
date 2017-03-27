@@ -36,7 +36,7 @@
 		D45AA6A51E87E6A900E4DCA5 /* 27.png in Resources */ = {isa = PBXBuildFile; fileRef = D45AA6A41E87E6A900E4DCA5 /* 27.png */; };
 		D45AA6A71E87FE6C00E4DCA5 /* 28.png in Resources */ = {isa = PBXBuildFile; fileRef = D45AA6A61E87FE6C00E4DCA5 /* 28.png */; };
 		D45AA6A91E87FEBC00E4DCA5 /* shutter.png in Resources */ = {isa = PBXBuildFile; fileRef = D45AA6A81E87FEBC00E4DCA5 /* shutter.png */; };
-		D45AA6AB1E88A09D00E4DCA5 /* focus.png in Resources */ = {isa = PBXBuildFile; fileRef = D45AA6AA1E88A09D00E4DCA5 /* focus.png */; };
+		D45AA6AF1E88B03700E4DCA5 /* focus''.png in Resources */ = {isa = PBXBuildFile; fileRef = D45AA6AE1E88B03700E4DCA5 /* focus''.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +92,7 @@
 		D45AA6A41E87E6A900E4DCA5 /* 27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 27.png; sourceTree = "<group>"; };
 		D45AA6A61E87FE6C00E4DCA5 /* 28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 28.png; sourceTree = "<group>"; };
 		D45AA6A81E87FEBC00E4DCA5 /* shutter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shutter.png; sourceTree = "<group>"; };
-		D45AA6AA1E88A09D00E4DCA5 /* focus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = focus.png; sourceTree = "<group>"; };
+		D45AA6AE1E88B03700E4DCA5 /* focus''.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "focus''.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,9 +203,9 @@
 				D45AA6A41E87E6A900E4DCA5 /* 27.png */,
 				D45AA6A61E87FE6C00E4DCA5 /* 28.png */,
 				D45AA6A81E87FEBC00E4DCA5 /* shutter.png */,
+				D45AA6AE1E88B03700E4DCA5 /* focus''.png */,
 				D45AA6831E87586A00E4DCA5 /* button.png */,
 				D45AA6841E87586A00E4DCA5 /* flipcamera.png */,
-				D45AA6AA1E88A09D00E4DCA5 /* focus.png */,
 				D45AA6851E87586A00E4DCA5 /* url-1.jpg */,
 			);
 			path = images;
@@ -330,10 +330,10 @@
 				D45AA6971E87586A00E4DCA5 /* button.png in Resources */,
 				D45AA6A71E87FE6C00E4DCA5 /* 28.png in Resources */,
 				D45AA6931E87586A00E4DCA5 /* 6'.png in Resources */,
+				D45AA6AF1E88B03700E4DCA5 /* focus''.png in Resources */,
 				D45AA6A91E87FEBC00E4DCA5 /* shutter.png in Resources */,
 				D45AA6911E87586A00E4DCA5 /* 5.png in Resources */,
 				D45AA6A31E87CB0700E4DCA5 /* 26'.png in Resources */,
-				D45AA6AB1E88A09D00E4DCA5 /* focus.png in Resources */,
 				D45AA69D1E87C27800E4DCA5 /* 8'.png in Resources */,
 				D45AA6991E87586A00E4DCA5 /* url-1.jpg in Resources */,
 				D45AA6871E87586A00E4DCA5 /* 11.png in Resources */,

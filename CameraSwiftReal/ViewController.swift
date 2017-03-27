@@ -37,7 +37,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     var filterImageArray: [UIImage?] = []
     
     //フォーカスビュー生成①
-    var focusView: UIImageView!
+    var focusView: UIImageView = UIImageView(frame: CGRect(x:0,y:0,width:100,height:100))
     
     //保存のやつ AppDelegateのインスタンスを取得
      var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -54,8 +54,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     let uiSlider : UISlider = UISlider()
     
-    //フォーカスビュー宣言
-    var focusView: UIImageView!
+  
     
     
     override func viewDidLoad() {
@@ -63,10 +62,13 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         // Do any additional setup after loading the view, typically from a nib.
     
         //フォーカスビュー生成
-        focusView = UIImageView["focus.png"]
+        focusView.image = UIImage(named: "focus''.png")
+        focusView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        focusView.isHidden = true
         
         //追加事項(imageviewの追加)
         cameraview.addSubview(imageView)
+        self.view.addSubview(focusView)
         
         imageView.contentMode = UIViewContentMode.scaleAspectFit
         
@@ -220,31 +222,44 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         }
     }
     
-    //タップジェスチャーの具体的な内容 
+    //タップジェスチャーの具体的な内容
     
     func tappedScreen(gestureRecognizer: UITapGestureRecognizer){
         let screenSize = cameraview.bounds.size
         let touchPoint = gestureRecognizer.location(ofTouch: 0, in: gestureRecognizer.view) 
-            let x = touchPoint.y / screenSize.height
-            let y = 1.0 - touchPoint.x / screenSize.width
-            let focusPoint = CGPoint(x: x, y: y)
-            
-            if let device = myDevice {
-                do {
-                    try device.lockForConfiguration()
-                    
-                    device.focusPointOfInterest = focusPoint
-                    //device.focusMode = .ContinuousAutoFocus
-                    device.focusMode = .autoFocus
-                    //device.focusMode = .Locked
-                    device.exposurePointOfInterest = focusPoint
-                    device.exposureMode = AVCaptureExposureMode.continuousAutoExposure
-                    device.unlockForConfiguration()
-                }
-                catch {
-                    // just ignore
-                }
+        let x = touchPoint.y / screenSize.height
+        let y = 1.0 - touchPoint.x / screenSize.width
+        let focusPoint = CGPoint(x: x, y: y)
+        
+        //フォーカスビュー表示させます
+        focusView.alpha = 1
+        focusView.center.x = touchPoint.x
+        focusView.center.y = touchPoint.y + 78
+        focusView.isHidden = false
+        
+        UIView.animate (withDuration: 0.5, animations: {
+            self.focusView.alpha = 0
+        }, completion: { _ in
+             self.focusView.isHidden = true
+        })
+        
+        
+        if let device = myDevice {
+            do {
+                try device.lockForConfiguration()
+                
+                device.focusPointOfInterest = focusPoint
+                //device.focusMode = .ContinuousAutoFocus
+                device.focusMode = .autoFocus
+                //device.focusMode = .Locked
+                device.exposurePointOfInterest = focusPoint
+                device.exposureMode = AVCaptureExposureMode.continuousAutoExposure
+                device.unlockForConfiguration()
             }
+            catch {
+                // just ignore
+            }
+        }
         
         
     }
