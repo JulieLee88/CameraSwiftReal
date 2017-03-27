@@ -16,6 +16,7 @@ let PosterizeFilter = CIFilter(name: "CIColorPosterize", withInputParameters: ["
 
 
 
+
 @objc protocol FilterScrollViewDelegate: UIScrollViewDelegate{
     func filterButtonTapped(_ button: UIButton)
 }
@@ -35,10 +36,13 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     //UIImageの宣言
     var filterImageArray: [UIImage?] = []
     
+    //フォーカスビュー生成①
+    var focusView: UIImageView!
+    
     //保存のやつ AppDelegateのインスタンスを取得
      var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    
-   
+    //デリゲート呼ぶ
+  // videoOutput.setSampleBufferDelegate(self, queue: dispatch_queue_create("sample buffer delegate", DISPATCH_QUEUE_SERIAL))
     
     @IBOutlet var label : UILabel!
     
@@ -50,9 +54,16 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     let uiSlider : UISlider = UISlider()
     
+    //フォーカスビュー宣言
+    var focusView: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    
+        //フォーカスビュー生成
+        focusView = UIImageView["focus.png"]
         
         //追加事項(imageviewの追加)
         cameraview.addSubview(imageView)
@@ -64,7 +75,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         
         uiSlider.minimumValue = 0.4
         
-        uiSlider.maximumValue = 0.9
+        uiSlider.maximumValue = 1
         
          uiSlider.value = 0.65
         //タップジェスチャー（カメラのピント）の生成
@@ -76,7 +87,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
        
         
         
-        filterImageArray = [UIImage(named: "4'.png"),UIImage(named: "5.png"),UIImage(named: "6'.png"),UIImage(named: "7.png"),UIImage(named: "8.png"),UIImage(named: "9.png"),UIImage(named: "10.png"),UIImage(named: "11.png"),UIImage(named: "12.png"),UIImage(named: "16.png"),UIImage(named: "20.png"),UIImage(named: "21.png"),UIImage(named: "24.png"),UIImage(named: "25.png"),UIImage(named: "26.png")]
+        filterImageArray = [UIImage(named: "4'.png"),UIImage(named: "5.png"),UIImage(named: "6'.png"),UIImage(named: "8'.png"),UIImage(named: "9.png"),UIImage(named: "10.png"),UIImage(named: "11.png"),UIImage(named: "20.png"),UIImage(named: "21.png"),UIImage(named: "25'.png"),UIImage(named: "26'.png"),UIImage(named: "27.png"),UIImage(named: "28.png")]
         
         scrollView.contentSize = CGSize(width: CGFloat(60*filterImageArray.count), height: scrollView.frame.size.height)
         for i in 0..<filterImageArray.count {
@@ -188,7 +199,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     @IBAction func Album(_ sender :AnyObject){
         pickImageFromLibrary()
     }
-    //タップジェスチャーの具体的な内容 
+   
     
     
     func cropImageToSquare(_ image: UIImage) -> UIImage? {
@@ -209,7 +220,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         }
     }
     
-    let focusView = UIView()
+    //タップジェスチャーの具体的な内容 
     
     func tappedScreen(gestureRecognizer: UITapGestureRecognizer){
         let screenSize = cameraview.bounds.size

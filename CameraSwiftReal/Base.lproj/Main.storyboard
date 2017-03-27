@@ -69,7 +69,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="4'.png" translatesAutoresizingMaskIntoConstraints="NO" id="lom-7I-NFB">
                                 <rect key="frame" x="0.0" y="78" width="376" height="376"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igx-rf-zIp">
                                 <rect key="frame" x="267" y="7" width="82" height="76"/>
@@ -93,17 +92,10 @@
                                     <segue destination="va3-ml-R2W" kind="modal" id="sbB-VS-4Io"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.65000000000000002" minValue="0.5" maxValue="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="nHW-iS-X2Y">
-                                <rect key="frame" x="14" y="549" width="337" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="sliderValueChangedWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="sBI-Cb-OyT"/>
-                                </connections>
-                            </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Xt-6P-DrG">
                                 <rect key="frame" x="148" y="586" width="73" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="button.png"/>
+                                <state key="normal" title="Button" image="shutter.png"/>
                                 <connections>
                                     <action selector="onClickMyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Foz-ez-W4L"/>
                                 </connections>
@@ -118,6 +110,13 @@
                                     <action selector="Album:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bMf-8S-z8l"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.65000000000000002" minValue="0.5" maxValue="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="nHW-iS-X2Y">
+                                <rect key="frame" x="16" y="548" width="337" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderValueChangedWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="sBI-Cb-OyT"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -169,6 +168,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="4'.png" translatesAutoresizingMaskIntoConstraints="NO" id="0cJ-7O-dcc">
                                 <rect key="frame" x="0.0" y="78" width="376" height="376"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="contentStretch" x="1" y="1" width="0.0" height="0.0"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fro-GN-38l">
                                 <rect key="frame" x="267" y="7" width="82" height="76"/>
@@ -189,17 +189,10 @@
                                     <color key="titleColor" red="1" green="0.61897620649999996" blue="0.70985736619999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.64999997615814209" minValue="0.5" maxValue="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="Szi-zH-zch">
-                                <rect key="frame" x="14" y="549" width="337" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="sliderValueChangedWithSender:" destination="Wg4-dO-7JG" eventType="valueChanged" id="YrL-em-0Gk"/>
-                                </connections>
-                            </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaD-QA-UIj">
                                 <rect key="frame" x="148" y="586" width="73" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="button.png"/>
+                                <state key="normal" title="Button" image="shutter.png"/>
                                 <connections>
                                     <action selector="onClickMyButton:" destination="Wg4-dO-7JG" eventType="touchUpInside" id="zMd-Xv-nlc"/>
                                 </connections>
@@ -214,6 +207,13 @@
                                     <action selector="Album:" destination="Wg4-dO-7JG" eventType="touchUpInside" id="xU8-bf-d4H"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.64999997615814209" minValue="0.5" maxValue="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="Szi-zH-zch">
+                                <rect key="frame" x="14" y="548" width="337" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderValueChangedWithSender:" destination="Wg4-dO-7JG" eventType="valueChanged" id="YrL-em-0Gk"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -230,8 +230,8 @@
     </scenes>
     <resources>
         <image name="4'.png" width="600" height="600"/>
-        <image name="button.png" width="300" height="300"/>
         <image name="flipcamera.png" width="512" height="512"/>
+        <image name="shutter.png" width="200" height="200"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

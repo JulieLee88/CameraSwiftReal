@@ -44,14 +44,14 @@ class CameraFrontViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         uiSlider.minimumValue = 0.4
         
-        uiSlider.maximumValue = 0.9
+        uiSlider.maximumValue = 1
         
         uiSlider.value = 0.65
         
         
         
         
-        filterImageArray = [UIImage(named: "4'.png"),UIImage(named: "5.png"),UIImage(named: "6'.png"),UIImage(named: "7.png"),UIImage(named: "8.png"),UIImage(named: "9.png"),UIImage(named: "10.png"),UIImage(named: "11.png"),UIImage(named: "12.png"),UIImage(named: "16.png"),UIImage(named: "20.png"),UIImage(named: "21.png"),UIImage(named: "24.png"),UIImage(named: "25.png"),UIImage(named: "26.png")]
+        filterImageArray = [UIImage(named: "4'.png"),UIImage(named: "5.png"),UIImage(named: "6'.png"),UIImage(named: "8'.png"),UIImage(named: "9.png"),UIImage(named: "10.png"),UIImage(named: "11.png"),UIImage(named: "20.png"),UIImage(named: "21.png"),UIImage(named: "25'.png"),UIImage(named: "26'.png"),UIImage(named: "27.png"),UIImage(named: "28.png")]
         
 
         scrollView.contentSize = CGSize(width: CGFloat(60*filterImageArray.count), height: scrollView.frame.size.height)
